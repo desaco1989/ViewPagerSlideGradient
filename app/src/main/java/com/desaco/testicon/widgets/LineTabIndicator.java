@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.desaco.testicon.R;
 
@@ -184,22 +186,22 @@ public class LineTabIndicator extends HorizontalScrollView {
         if (indicatorOnTop) {
             canvas.drawRect(lineLeft, 0, lineRight, indicatorHeight, linePaint);
         } else {
-            //TODO 设置线的长度为固定的40  ;(lineRight - lineLeft) / 2 - 20
+            //设置线的长度为固定的40  ;(lineRight - lineLeft) / 2 - 20
             float left = lineLeft / 2 + lineRight / 2 - 30;
             float right = lineRight - (lineRight - lineLeft) / 2 + 30;
             //lineLeft + 60  lineRight - 60
             canvas.drawRect(left, height - indicatorHeight, right,
                     height, linePaint);
         }
-
-        if (enableDivider) {
+        //去掉指示器下整个线
+//        if (enableDivider) {
 //            diviPaint.setColor(dividerColor);
-            for (int i = 0; i < tabCount - 1; i++) {
-                View tab = mTabsContainer.getChildAt(i);
+//            for (int i = 0; i < tabCount - 1; i++) {
+//                View tab = mTabsContainer.getChildAt(i);
 //                canvas.drawLine(tab.getRight(), dividerPadding, tab.getRight(),
 //                        height - dividerPadding, diviPaint);
-            }
-        }
+//            }
+//        }
     }
 
     //关联viewpager
@@ -224,18 +226,21 @@ public class LineTabIndicator extends HorizontalScrollView {
     }
 
     public void notifyDataSetChanged() {
-
         mTabsContainer.removeAllViews();
-
         tabCount = mPager.getAdapter().getCount();
         for (int i = 0; i < tabCount; i++) {
             addTab(i, mPager.getAdapter().getPageTitle(i).toString());
         }
+//        if (isFirstIn) {
+//            childAt1.getTextView().setProgress(1.0f);//第一个默认为选中的颜色
+//        }
+        updateTabStyles();//TODO
+        Log.e("desaco","第一个默认为选中的颜色,getCurrentItem="+mPager.getCurrentItem());
+        tabSelect(mPager.getCurrentItem());
+
         TabView childAt1 = (TabView) mTabsContainer.getChildAt(0);
-        if (isFirstIn) {
-            childAt1.getTextView().setProgress(1.0f);//第一个默认为选中的颜色
-        }
-        updateTabStyles();
+        childAt1.getTextView().setTextChangeColor(textSelectedColor);
+        childAt1.getTextView().setTextOriginColor(textSelectedColor);
     }
 
 
@@ -284,13 +289,18 @@ public class LineTabIndicator extends HorizontalScrollView {
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getContext(),"是点击了Tab，不是滑动！",Toast.LENGTH_SHORT).show();
+                Log.e("desaco","position="+position);
                 final int oldSelected = mPager.getCurrentItem();
-
                 if (oldSelected != position && mTabSelectedListener != null) {
                     mTabSelectedListener.onTabSelected(position);
                 }
-                isClickTo = true;
-                mPager.setCurrentItem(position, viewPagerScrollWithAnimation);
+                if(oldSelected != position){//TODO 点击了Tab的监听
+                    isClickTo = true;
+                    mPager.setCurrentItem(position, viewPagerScrollWithAnimation);
+                }else{//重复点击一个Tab，不去刷新页面 做处理
+
+                }
             }
         });
 
@@ -372,18 +382,20 @@ public class LineTabIndicator extends HorizontalScrollView {
                     ((TabView) child).getTextView().setTextChangeColor(textSelectedColor);
                 }
             }
+
+
         }
     }
 
     //刷新所有的颜色
     private void updateTabStyles() {
+        Log.e("desaco","刷新所有的颜色,updateTabStyles()");
         for (int i = 0; i < tabCount; i++) {
             TabView childAt1 = (TabView) mTabsContainer.getChildAt(i);
             childAt1.getTextView().setBackgroundColor(Color.TRANSPARENT);
             childAt1.getTextView().setTextChangeColor(Color.BLACK);
             childAt1.getTextView().setTextOriginColor(Color.BLACK);
         }
-        tabSelect(mPager.getCurrentItem());
     }
 
     private void scrollToChild(int position, int offset) {
@@ -445,10 +457,12 @@ public class LineTabIndicator extends HorizontalScrollView {
 
         @Override
         public void onPageSelected(int position) {
+            Log.e("desaco","ViewPager onPageSelected...");
             if (right != null)
                 right.setProgress(0);
             if (left != null)
                 left.setProgress(0);
+            updateTabStyles();
             tabSelect(position);
             if (mOnPageChangeListener != null) {
                 mOnPageChangeListener.onPageSelected(position);

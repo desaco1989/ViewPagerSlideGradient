@@ -74,9 +74,9 @@ public class ViewPagerAnimateActivity extends FragmentActivity {
     }
 
     public class MyPagerAdapter extends FragmentPagerAdapter {//FragmentPagerAdapter
-
-        private final String[] TITLES = {"Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "Top New Paid",
-                "Top New Free", "Trending"};
+        //,"Top Free", "Top Grossing", "Top New Paid","Top New Free", "Trending"
+//        private final String[] TITLES = {"Categories", "Home", "Top Paid","Top Grossing"};
+        private final String[] TITLES = {"111", "222", "333","444"};
 
         public MyPagerAdapter(FragmentManager fm) {//FragmentManager
             super(fm);
