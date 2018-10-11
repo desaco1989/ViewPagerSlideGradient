@@ -184,8 +184,11 @@ public class LineTabIndicator extends HorizontalScrollView {
         if (indicatorOnTop) {
             canvas.drawRect(lineLeft, 0, lineRight, indicatorHeight, linePaint);
         } else {
-            //TODO 设置
-            canvas.drawRect(lineLeft+60, height - indicatorHeight, lineRight-60,
+            //TODO 设置线的长度为固定的40  ;(lineRight - lineLeft) / 2 - 20
+            float left = lineLeft / 2 + lineRight / 2 - 30;
+            float right = lineRight - (lineRight - lineLeft) / 2 + 30;
+            //lineLeft + 60  lineRight - 60
+            canvas.drawRect(left, height - indicatorHeight, right,
                     height, linePaint);
         }
 
