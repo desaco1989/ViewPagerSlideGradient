@@ -37,6 +37,8 @@
         <attr name="dividerPadding1" format="integer" />
         <!--标签空隙大小-->
         <attr name="tabPadding" format="integer" />
+        <!-- LineTabIndicator的高度-->
+        <attr name="indicatorHeight" format="integer" />
     </declare-styleable>
 
     <!--viewpager颜色渐变-->

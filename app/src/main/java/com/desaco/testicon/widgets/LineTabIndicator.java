@@ -63,14 +63,15 @@ public class LineTabIndicator extends HorizontalScrollView {
     private boolean viewPagerScrollWithAnimation = true;
     private int tabTextSize = 16;
     private int scrollOffset = 52;
-    private float indicatorHeight = 1.5f;
+    private float indicatorHeight = 1.5f;//indicator下划线的高度
     private float underlineHeight = 1f;
     private int dividerPadding = 12;
     private int tabPadding = 24;
     private int dividerWidth = 1;
     private int lastScrollX = 0;
-    private int margin = 22;
+    private int margin = 22;//设置两个tabz之间的间隔，22;
     private boolean isFirstIn = true;
+    private int lineTabIndicatorHeight = 50;
 
     public LineTabIndicator(Context context) {
         this(context, null);
@@ -90,12 +91,7 @@ public class LineTabIndicator extends HorizontalScrollView {
 
         mTabsContainer = new LinearLayout(context);
         mTabsContainer.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT);
-        params.height = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, 50, dm);
-        mTabsContainer.setLayoutParams(params);
-        addView(mTabsContainer);
+
 
         scrollOffset = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, scrollOffset, dm);
@@ -123,7 +119,15 @@ public class LineTabIndicator extends HorizontalScrollView {
         indicatorOnTop = ta.getBoolean(R.styleable.LineTabIndicator_indicatorOnTop, indicatorOnTop);
         dividerPadding = ta.getInteger(R.styleable.LineTabIndicator_dividerPadding1, dividerPadding);
         tabPadding = ta.getInteger(R.styleable.LineTabIndicator_tabPadding, tabPadding);
+        lineTabIndicatorHeight = ta.getInteger(R.styleable.LineTabIndicator_indicatorHeight, tabPadding);
         ta.recycle();
+
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT);
+        params.height = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, lineTabIndicatorHeight, dm);//TODO ,设置LineTabIndicator的高度 50；
+        mTabsContainer.setLayoutParams(params);
+        addView(mTabsContainer);
 
         linePaint = new Paint();
         linePaint.setAntiAlias(true);

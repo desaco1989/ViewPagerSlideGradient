@@ -9,6 +9,7 @@
         android:id="@+id/lineTab"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        xlh:indicatorHeight="50"
         xlh:dividerColor="#ff00"
         xlh:indicatorColor="#ff00" />
 
