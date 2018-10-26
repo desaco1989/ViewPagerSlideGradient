@@ -205,9 +205,9 @@ public class LineTabIndicator extends HorizontalScrollView {
     }
 
     //关联viewpager
-    public void setViewPager(ViewPager pager) {
+    public void setViewPager(ViewPager pager,int tabTextSize) {
         this.mPager = pager;
-
+        this.tabTextSize = tabTextSize;
         if (pager.getAdapter() == null) {
             throw new IllegalStateException(
                     "ViewPager does not have adapter instance.");
@@ -269,6 +269,7 @@ public class LineTabIndicator extends HorizontalScrollView {
         private void init() {
             View views = View.inflate(getContext(), R.layout.viewpager_title, null);
             mTabText = (ColorTrackView) views.findViewById(R.id.trackview);
+            mTabText.setTextSize(tabTextSize);//TODO
             LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.MATCH_PARENT);
             params.leftMargin = margin / 2;

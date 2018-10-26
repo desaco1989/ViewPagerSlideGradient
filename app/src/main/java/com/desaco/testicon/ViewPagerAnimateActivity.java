@@ -58,7 +58,7 @@ public class ViewPagerAnimateActivity extends FragmentActivity {
 //        adapter = new MyPagerAdapter();//getFragmentManager()
         adapter = new MyPagerAdapter(getSupportFragmentManager());//getChildFragmentManager()   getFragmentManager()
         viewpager.setAdapter(adapter);
-        lineTabIndicator.setViewPager(viewpager);
+        lineTabIndicator.setViewPager(viewpager,52);//TODO 设置ViewPager tab字体大小
         //滑动监听
         viewpager.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -75,8 +75,8 @@ public class ViewPagerAnimateActivity extends FragmentActivity {
 
     public class MyPagerAdapter extends FragmentPagerAdapter {//FragmentPagerAdapter
         //,"Top Free", "Top Grossing", "Top New Paid","Top New Free", "Trending"
-//        private final String[] TITLES = {"Categories", "Home", "Top Paid","Top Grossing"};
-        private final String[] TITLES = {"111", "222", "333","444"};
+        private final String[] TITLES = {"Categories", "财经眼", "锐科技","Top Grossing", "直播", "军事"};
+//        private final String[] TITLES = {"111", "222", "333","444"};
 
         public MyPagerAdapter(FragmentManager fm) {//FragmentManager
             super(fm);
