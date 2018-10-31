@@ -1,5 +1,7 @@
 package com.desaco.testicon;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -98,5 +100,11 @@ public class ViewPagerAnimateActivity extends FragmentActivity {
             return SuperAwesomeCardFragment.newInstance(position);
         }
 
+    }
+    public void data(){
+        PropertyValuesHolder ph;
+        ObjectAnimator.ofFloat(lineTabIndicator, "translationX", 0f,200f)
+                .setDuration(2000)
+                .start();
     }
 }
