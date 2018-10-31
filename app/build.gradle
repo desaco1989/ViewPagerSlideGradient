@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    //compileSdkVersion或targetSdkVersion < 26
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.desaco.testicon"

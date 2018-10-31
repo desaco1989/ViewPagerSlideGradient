@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">TestIcon</string>
+    <string name="app_name">TabGradient</string>
+
+    <string name="tab">Tab导航渐变</string>
+    <string name="icon_change">Logo图标在不同的API展示不同</string>
+
 </resources>
