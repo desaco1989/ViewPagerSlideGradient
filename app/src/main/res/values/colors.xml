@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="translucent">#ffffffff</color>
+    <color name="translucent40">#66000000</color>
+    <color name="translucent_bg">#77000000</color>
+    <color name="translucent_50">#80000000</color>
+    <color name="white">#ffffff</color>
+    <color name="glay_b3000000">#b3000000</color>
+    <!-- 背景色 -->
+    <color name="color_f2f3f5">#f2f3f5</color>
+    <color name="color_4d0000">#4d000000</color>
+    <color name="color_d32f24">#d32f24</color>
+    <color name="dialog_colors">#f7f7f7</color>
+    <color name="black_3">#333333</color>
+    <color name="black_28292d">#28292d</color>
+    <color name="grey_ivRight">#f6f8f8</color>
+    <!-- 浅黑 -->
+    <color name="black">#000000</color>
+    <color name="black_514647">#514647</color>
+    <color name="black_6">#666666</color>
+    <color name="black_9">#999999</color>
+    <color name="b_efefef">#efefef</color>
+    <color name="gary_80ffffff">#80ffffff</color>
+    <color name="gary__1b1b1b">#1b1b1b</color>
+    <color name="gary_DADADA">#DADADA</color>
+    <color name="gary_ececec">#ececec</color>
+    <color name="black_4a4e57">#4a4e57</color>
+    <color name="gray_eaeaea">#eaeaea</color>
+    <!-- 亮蓝 -->
+    <color name="blue_07b2f7">#07b2f7</color>
+    <color name="blue_4040A1">#4040A1</color>
+    <color name="blue_1181FF">#1181FF</color>
+    <color name="red_ef4f37">#ef4f37</color>8
+    <color name="red_ee2049">#ee2049</color>
+    <color name="blue_303592">#303592</color>
+    <color name="blue_3d7df2">#3d7df2</color>
+
+    <!-- 灰色 -->
+    <color name="gray_fafafa">#fafafa</color>
+    <!-- 浅灰 -->
+    <color name="gray_b2afaa">#b2afaa</color>
+    <color name="gray_dddddd">#dddddd</color>
+    <color name="gray_aaaaaa">#aaaaaa</color>
+    <color name="gray_33000000">#33000000</color>
+    <color name="gray_777777">#777777</color>
+    <color name="gray_999ea4">#999ea4</color>
+    <color name="gray_c6c6c6">#c6c6c6</color>
+    <color name="gray_404040">#404040</color>
+    <color name="gray_alpha_7f404040">#7F404040</color>
+    <!-- 棕色 -->
+    <color name="dark_544646">#544646</color>
+    <!-- 分隔线 -->
+    <color name="CCCCCC">#CCCCCC</color>
+    <color name="alpha_0a000000">#0a000000</color>
+    <color name="alpha_00000000">#00000000</color>
+    <color name="alpha_73ffffff">#73ffffff</color>
+    <color name="red_fffb6655">#fffb6655</color>
+    <color name="gray_7b403b37">#7b403b37</color>
+    <color name="gray_ff403b37">#ff403b37</color>
+    <color name="gray_dedede">#dedede</color>
+    <color name="line_color">#e6e6e6</color>
+
+
+    <!--夜间-->
+    <color name="gray_a9a9aa">#a9a9aa</color>
+    <color name="gray_58585b">#58585b</color>
+    <color name="gray_28292c">#28292c</color>
+    <color name="gray_202124">#202124</color>
+    <color name="gray_1d1e20">#1d1e20</color>
+    <color name="gray_191a1c">#191a1c</color>
+    <color name="gray_37383a">#37383a</color>
+    <color name="color_b6b6b6">#b6b6b6</color>
+
+    <color name="gray_b0000000">#b0000000</color>
+    <color name="color_5c000000">#5c000000</color>
+
+    <color name="holo_blue">#FF33E5B5</color>
 </resources>
